@@ -1,0 +1,239 @@
+<!-- This project uses internal/in-page CSS and JavaScript -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deliverables i.c*</title>
+    <link rel="stylesheet" href="styles.css">
+    </head>
+  <body>
+    <!--  -->
+    <!-- About me-->
+    <div class="container container1">
+      <h2>About Me</h2>
+      <p>
+        Welcome to my i.c.stars deliverables page! These projects demonstrate my skills in React, HTML, JavaScript, CSS, and more. I've worked on tasks like calculating sums, printing even numbers, checking voting eligibility, and building a React counter app.
+      </p>
+      <div class="social-links">
+        <a href="https://www.linkedin.com/in/nathan-clark-4a9b6417a/" target="_blank">
+          <img id="linkedin-logo" src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn Logo">
+        </a>
+        <a href="https://www.linkedin.com/in/nathan-clark-4a9b6417a/" target="_blank">
+          <img id="my-photo" src="https://i.postimg.cc/fL2Dgmts/unnamed.jpg" alt="My Photo">
+        </a>
+        
+
+        <a href="https://github.com/nclarkicstar" target="_blank">
+          <img id="github-logo" src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub Logo">
+        </a>
+      </div>
+    </div>
+    <!--  -->
+    <!-- Assignment 1 -->
+    <!-- Sum of numbers -->
+    <div class="container container1">
+      <h2>Sum Of Numbers</h2>
+      <p>
+        Assignment:
+        <br />
+        Write a JavaScript program that calculates the sum of all numbers from 1
+        to a given number n.
+        <br />
+        You should use a for loop to accomplish this.
+      </p>
+
+      <div class="inputArea">
+        
+        <input
+        type="number"
+        id="calculateSumNumber"
+        name="calculateSumNumberInput"
+        />
+        <button onclick="calculateSum()">Calculate!</button>
+      </div>
+      <p class="resultsBox" id="calculateSumResult">
+        Result will be shown here
+      </p>
+    </div>
+    <!--  -->
+    <!-- Assignment 2 -->
+    <!--  Print even numbers-->
+    <div class="container container2">
+      <h2>Print Even Numbers</h2>
+      <p>
+        Assignment:
+        <br />
+        Write a JavaScript program that uses a while loop to print all even
+        numbers from 1 to a given number n
+      </p>
+      <div class="inputArea">
+        
+        <input type="number" id="printEvenNumber" name="printEvenNumberInput" />
+        <button onclick="printEven()">Print!</button>
+      </div>
+      <p class="resultsBox" id="printEvenResult">Result will be shown here</p>
+    </div>
+    <!--  -->
+    <!-- Assignment 3 -->
+    <!--  Check voting eligibility-->
+    <div class="container container3">
+      <h2>Check Voting Eligibility</h2>
+      <p>
+        Assignment:
+        <br />
+        Create a JavaScript function called checkVotingEligibility that takes
+        one parameter, age.
+        <br />
+        Inside the function, use an if statement to check if the age is greater
+        than or equal to 18.
+      </p>
+      <div class="inputArea">
+        
+        <input type="number" id="checkVoteNumber" name="checkVoteNumberInput" />
+        <button onclick="checkVotingEligibility()">Check Vote Eligibility</button>
+      </div>
+      <p class="resultsBox" id="checkVoteResult">Result will be shown here</p>
+    </div>
+    <!--  -->
+    <!-- Assignment 4 -->
+    <!-- counter assignment -->
+    <div class="container container4">
+      <h2>Counter</h2>
+      <p class="assignmentText">
+        Assignment:
+        <br />
+        Create a counter
+        <br />
+        <i>
+          <li>
+            Bonus functions added
+          </li>
+        </i>
+      </p>
+            <!-- <p class="assignmentText">Assignment: <br />Create a counter in react</p> -->
+
+      <p class="counterOutput resultsBox" id="currentCount">0</p>
+      <div class="inputArea">
+      <button class="counterButton buttonDown" onclick="decrementCount()">-</button>
+      <button class="counterButton buttonUp" onclick="incrementCount()">+</button>
+     </div>
+      
+    
+    <div class="inputArea">
+      
+      <button class="counterButton resetCounterButton" id="" onclick="resetCount()">Reset</button>
+    </div>
+    <div class="inputArea">
+      <label for="#multiplierEnabled">Custom Value<label>
+        <input onclick="toggleCustom()" id="multiplierEnabled"  type="checkbox"></input>
+        <input
+        id="multiplierInput"
+        type="number"
+        class="toggleOff"
+        placeholder="multiplier"
+        value="1"
+        />
+      </div>
+    </div>
+    <script>
+      // Assignment:
+//Write a JavaScript program that
+// calculates the sum of all numbers from
+// 1 to a given number n. You should use a for
+// loop to accomplish this.
+calculateSumResult = document.getElementById("calculateSumResult");
+calculateSumNumber = document.getElementById("calculateSumNumber");
+
+function calculateSum() {
+  let n = calculateSumNumber.value;
+
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum += i;
+  }
+  calculateSumResult.textContent = "Result is " + sum;
+}
+
+// Assignment:
+// Write a JavaScript program that uses a
+// while loop to print all even
+// numbers from 1 to a given number n
+printEvenResult = document.getElementById("printEvenResult");
+printEvenNumber = document.getElementById("printEvenNumber");
+
+function printEven() {
+  let n = printEvenNumber.value;
+  let evensArr = [];
+  let i = 2;
+  while (i <= n) {
+    evensArr.push(i);
+    console.log(i);
+    i += 2;
+  }
+  printEvenResult.textContent = "Result is " + evensArr;
+}
+
+// Assignment:
+// check voting eligibility based on age
+checkVoteNumber = document.getElementById("checkVoteNumber");
+checkVoteResult = document.getElementById("checkVoteResult");
+container3 = document.querySelector(".container3");
+
+function checkVotingEligibility() {
+  let age = checkVoteNumber.value;
+  container3.classList.remove("incorrect");
+  container3.classList.remove("correct");
+  if (age >= 18) {
+    let checkVotingResult = "You are eligible to vote!";
+    checkVoteResult.textContent = checkVotingResult;
+    container3.classList.add("correct");
+  } else {
+    let checkVotingResult = "Sorry, you are not eligible to vote yet.";
+    checkVoteResult.textContent = checkVotingResult;
+    container3.classList.add("incorrect");
+  }
+}
+
+// Assignment:
+// button counter
+// Bonus feature: custom number
+multiplierInput = document.querySelector("#multiplierInput");
+currentCount = document.getElementById("currentCount");
+toggleChecker = 10;
+counterValue = 0;
+
+function decrementCount() {
+  multiplierValue = parseInt(multiplierInput.value);
+  counterValue -= multiplierValue;
+  currentCount.textContent = counterValue;
+}
+function incrementCount() {
+  multiplierValue = parseInt(multiplierInput.value);
+  counterValue += multiplierValue;
+  currentCount.textContent = counterValue;
+}
+// option to toggle the custom increments
+function toggleCustom() {
+  toggleChecker += 1;
+  multiplierInput.classList.remove("toggleOn");
+  multiplierInput.classList.remove("toggleOff");
+  if (toggleChecker % 2 == 0) {
+    lastValue = multiplierInput.value;
+    multiplierInput.classList.add("toggleOff");
+    multiplierInput.value = 1;
+  } else {
+    multiplierInput.classList.add("toggleOn");
+    multiplierInput.value = lastValue;
+  }
+}
+
+function resetCount() {
+  currentCount.textContent = 0;
+  counterValue = 0;
+}
+
+    </script>
+<!-- <script src="scripts.js"></script> -->
+  </body>
+</html>
